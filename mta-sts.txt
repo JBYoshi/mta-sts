@@ -1,0 +1,19 @@
+---
+layout: none
+permalink: /.well-known/mta-sts.txt
+
+# For optimal switch-overs, do the following:
+# 1. Drop lifetimes for any DNS records that need to change
+# 2. Add incoming to mta-sts.txt; wait for it to deploy, *then* update MTA-STS DNS record
+# 3. Add outgoing to DKIM and SPF as dictated by the provider
+# 4. Wait the full lifetime of the original records
+# 5. Switch over to the new server
+# 6. Wait for the new server's usages to propagate
+# 7. Remove the old servers from authentication (see above)
+# 8. Restore any DNS record lifetimes
+---
+version: STSv1
+mode: testing
+mx: spool.mail.gandi.net
+mx: fb.mail.gandi.net
+max_age: 86400
